@@ -11,7 +11,7 @@ fetch (urlApi)
 
         const newA = document.createElement ("a");
         sectionProducts.appendChild(newA);
-        Object.assign (newA, {href:"./product.html?"+ "id=" + products[product]._id})
+        Object.assign (newA, {href:"./product.html?"+ "id=" + products[product]._id})  
         
     }
     lien();

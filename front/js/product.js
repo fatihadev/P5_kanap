@@ -55,6 +55,34 @@ Object.assign(eleOption, {
     
     }
 
+const eleQuantity = document.getElementsByClassName("item__content__settings__quantity");
+console.log(eleQuantity);
+
+for (let index = 0; index < eleQuantity.length; index++) {
+    const eleQuantity = eleQuantity[index];
+   
+    
+}
+
+const eleValider = document.getElementsByClassName ("item__content__addButton");
+console.log (eleValider);
+
+const eleAdd = document.getElementById ("addToCart");
+console.log(eleAdd);
+
+
+
+const eleInfo = {
+id  : idProduct ,
+price: elePrice,
+color: eleColor,
+quantity: eleQuantity
+
+}
+
+
+localStorage.setItem(idProduct, JSON.stringify(eleInfo));
+console.log(localStorage);
 
 });
 

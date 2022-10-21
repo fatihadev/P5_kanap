@@ -55,8 +55,9 @@ Object.assign(eleOption, {
     
     }
 
-const eleQuantity = document.getElementsByClassName("item__content__settings__quantity");
+const eleQuantity = document.getElementById("quantity");
 console.log(eleQuantity);
+
 
 for (let index = 0; index < eleQuantity.length; index++) {
     const eleQuantity = eleQuantity[index];
@@ -66,9 +67,20 @@ for (let index = 0; index < eleQuantity.length; index++) {
 
 const eleValider = document.getElementsByClassName ("item__content__addButton");
 console.log (eleValider);
+eleValider[0].addEventListener("click",()=>
+{
+  var productQuantity = parseInt(document.getElementById("quantity").value) ;
+  console.log(productQuantity);
 
+  const productColor = document.querySelector("#colors").value;
+  console.log(productColor);
+
+  window.location.href = "cart.html";
+
+})
 const eleAdd = document.getElementById ("addToCart");
 console.log(eleAdd);
+
 
 
 
@@ -82,7 +94,9 @@ quantity: eleQuantity
 
 
 localStorage.setItem(idProduct, JSON.stringify(eleInfo));
-console.log(localStorage);
+console.log(eleInfo);
+
+
 
 });
 

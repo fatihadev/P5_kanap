@@ -1,4 +1,3 @@
-
 const url = window.location.href; 
 console.log(url);
 const urlProduct = new URL (url); 
@@ -11,92 +10,132 @@ fetch (urlApi)
 .then((res) => res.json())
 .then((data) =>{
     console.log(data);
-let infoProduct = data ;
-console.log(infoProduct);
+        let infoProduct = data ;
+        console.log(infoProduct);
 
-const eleImg = document.getElementsByClassName("item__img");
-console.log(eleImg);
+        const eleImg = document.getElementsByClassName("item__img");
+        console.log(eleImg);
 
-const newImg = document.createElement("img");
-Object.assign(newImg, {
-    src: infoProduct.imageUrl,
-    alt: infoProduct.altTxt ,
-})
-console.log(newImg);
-eleImg[0].appendChild(newImg);
+        const newImg = document.createElement("img");
+        Object.assign(newImg, {
+            src: infoProduct.imageUrl,
+            alt: infoProduct.altTxt ,
+        })
+        console.log(newImg);
+        eleImg[0].appendChild(newImg);
 
-const eleTitle = document.getElementById("title");
-eleTitle.innerHTML=infoProduct.name;
+        const eleTitle = document.getElementById("title");
+        eleTitle.innerHTML=infoProduct.name;
 
-const elePrice = document.getElementById("price");
-elePrice.innerHTML = infoProduct.price;
+        const elePrice = document.getElementById("price");
+        elePrice.innerHTML = infoProduct.price;
 
-const eleDesc = document.getElementById ("description");
-eleDesc.innerHTML = infoProduct.description;
+        const eleDesc = document.getElementById ("description");
+        eleDesc.innerHTML = infoProduct.description;
 
-console.log(infoProduct.colors)
+        console.log(infoProduct.colors)
 
-const eleColor = document.getElementById ("colors");
-console.log(eleColor);
+        const eleColor = document.getElementById ("colors");
+        console.log(eleColor);
 
-for (let color in infoProduct.colors ) {
-    let eleOption = document.createElement ("option");
-Object.assign(eleOption, {
+        for (let color in infoProduct.colors ) {
+            let eleOption = document.createElement ("option");
+        Object.assign(eleOption, {
 
-    value: infoProduct.colors[color],
-    innerText: infoProduct.colors[color],
-}
-    
-    )
-   
-    document.getElementById ("colors").appendChild(eleOption);
+            value: infoProduct.colors[color],
+            innerText: infoProduct.colors[color],
+        }
+            
+            )
+        
+            document.getElementById ("colors").appendChild(eleOption);
 
-    console.log(eleOption);
-    
-    }
+            console.log(eleOption);
+            
+            }
 
-const eleQuantity = document.getElementById("quantity");
-console.log(eleQuantity);
+        const eleQuantity = document.getElementById("quantity");
+        console.log(eleQuantity);
 
 
-for (let index = 0; index < eleQuantity.length; index++) {
-    const eleQuantity = eleQuantity[index];
-   
-    
-}
-
-const eleValider = document.getElementsByClassName ("item__content__addButton");
-console.log (eleValider);
-eleValider[0].addEventListener("click",()=>
-{
-  var productQuantity = parseInt(document.getElementById("quantity").value) ;
-  console.log(productQuantity);
-
-  const productColor = document.querySelector("#colors").value;
-  console.log(productColor);
-
-  window.location.href = "cart.html";
-
-})
-const eleAdd = document.getElementById ("addToCart");
-console.log(eleAdd);
+        for (let index = 0; index < eleQuantity.length; index++) {
+            const eleQuantity = eleQuantity[index];
+        
+            
+        }
 
 
 
+        // var productQuantity = parseInt(document.getElementById("quantity").value) ;
+        //   console.log(productQuantity);
 
-const eleInfo = {
-id  : idProduct ,
-price: elePrice,
-color: eleColor,
-quantity: eleQuantity
+        //   const productColor = document.querySelector("#colors").value;
+        //   console.log(productColor);
 
-}
+        
+        const eleAdd = document.getElementById ("addToCart");
+        console.log(eleAdd);
+        
 
+        eleAdd.addEventListener("click",()=>
+        {
+        var productQuantity = parseInt(document.getElementById("quantity").value);
 
-localStorage.setItem(idProduct, JSON.stringify(eleInfo));
-console.log(eleInfo);
+        var productColor = document.querySelector("#colors").value;
+            
+        var eleInfo = {
+            id  : idProduct ,
+            color: productColor,
+            quantity: productQuantity
+            
+            }
+            console.log(eleInfo);
 
+            if (!productColor || !productQuantity){
+                alert("S'il vous plait saisissez une couleur ou une quantité avant d'ajouter au panier");
+            }
 
+            else {
+                let productItems = JSON.parse(localStorage.getItem("eleInfo"));
+                console.log(productItems);
+                if (productItems != null){
+                    
+                    var ok = 0; 
+                    
 
-});
+                    for (let index = 0; index < productItems.length; index++) {
+                        const element = productItems[index];
+                        console.log(element.id);
+                        
+                        if (eleInfo.id === element.id && eleInfo.color === element.color) {
 
+                            element.quantity = element.quantity + eleInfo.quantity ;
+                            localStorage.setItem("eleInfo", JSON.stringify(productItems));
+                            console.log("A trouver meme couleur meme id")
+
+                            ok = ok +1;
+
+                        }
+                    }
+
+                        if (ok === 0) {
+                            productItems.push(eleInfo);
+                            localStorage.setItem("eleInfo", JSON.stringify(productItems));
+                            console.log("N'a pas trouver ni couleur ni Id")
+                            
+                        }
+                    
+                    }
+                        else {
+                            productItems = [];
+                            productItems.push(eleInfo);
+                            localStorage.setItem("eleInfo", JSON.stringify(productItems));
+                            console.log(productItems);
+                        }
+                    
+                    }
+                
+
+        });
+
+    });

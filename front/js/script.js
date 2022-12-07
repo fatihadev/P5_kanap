@@ -12,6 +12,7 @@ fetch (urlApi)
         const newA = document.createElement ("a");
         sectionProducts.appendChild(newA);
         Object.assign (newA, {href:"./product.html?"+ "id=" + products[product]._id})  
+        // pour recuperer l'id de chaque produit 
         
     }
     lien();
@@ -25,7 +26,7 @@ fetch (urlApi)
         var listArticle = document.getElementsByTagName("article");
         listArticle[product].appendChild(newImg);
 
-
+// object assign pour ajouter des attributs des attribut au seins de la balise
         
     }
 
@@ -36,10 +37,11 @@ fetch (urlApi)
 
             class:"productName",
             innerText:products[product].name,
-           
+        //    ajouter un test au sein de la balise ouvrant et fermante 
         })
         var listArticle = document.getElementsByTagName("article");
         listArticle[product].appendChild(newTitle);
+        // ajouter un fils 
 
     }
 
@@ -56,13 +58,13 @@ fetch (urlApi)
     }
 
     function lien() {
-
+// la balise a est un fils de items
         const filSection = document.querySelectorAll("#items > a");
-        filSection.forEach((a) => {
+        filSection.forEach((a) =>  {
             const newArticle = document.createElement ("article");
             a.appendChild(newArticle);
          
-        
+        // pour associer chaque a a un article 
         });
        
     }

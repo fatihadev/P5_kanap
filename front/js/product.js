@@ -5,7 +5,7 @@ console.log(urlProduct);
 const idProduct = urlProduct.searchParams.get("id"); 
 console.log(idProduct);
 
-const urlApi = "http://localhost:3000/api/products/" +idProduct ;
+const urlApi = "http://localhost:3000/api/products/" +idProduct ; 
 fetch (urlApi)  
 .then((res) => res.json())
 .then((data) =>{
@@ -58,12 +58,11 @@ fetch (urlApi)
         console.log(eleQuantity);
 
 
-        for (let index = 0; index < eleQuantity.length; index++) {
-            const eleQuantity = eleQuantity[index];
+        // for (let index = 0; index < eleQuantity.length; index++) {
+        //     const eleQuantity = eleQuantity[index];
         
             
-        }
-
+        // }
 
 
         // var productQuantity = parseInt(document.getElementById("quantity").value) ;
@@ -79,6 +78,7 @@ fetch (urlApi)
 
         eleAdd.addEventListener("click",()=>
         {
+     
         var productQuantity = parseInt(document.getElementById("quantity").value);
 
         var productColor = document.querySelector("#colors").value;
@@ -101,6 +101,7 @@ fetch (urlApi)
                 if (productItems != null){
                     
                     var ok = 0; 
+                    // un test pour stoper 
                     
 
                     for (let index = 0; index < productItems.length; index++) {
@@ -114,6 +115,7 @@ fetch (urlApi)
                             console.log("A trouver meme couleur meme id")
 
                             ok = ok +1;
+                            
 
                         }
                     }
@@ -124,6 +126,7 @@ fetch (urlApi)
                             console.log("N'a pas trouver ni couleur ni Id")
                             
                         }
+                        // va ajouter un nouvel element
                     
                     }
                         else {

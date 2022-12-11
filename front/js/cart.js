@@ -1,10 +1,5 @@
-const url = window.location.href; 
-console.log(url);
 const urlApi = "http://localhost:3000/api/products/";
-const urlProduct = new URL (url); 
-console.log(urlProduct);
-const idProduct = urlProduct.searchParams.get("id"); 
-console.log(idProduct);
+
 
 
 let productItems = JSON.parse(localStorage.getItem("eleInfo"));
@@ -209,10 +204,6 @@ formFirstName.addEventListener("change",(e) => {
   console.log(validFirstName(e.target.value));
 
 });
-
-
-
-
 
 
 // --------------------> nom de famille

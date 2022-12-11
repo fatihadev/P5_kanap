@@ -58,7 +58,7 @@ fetch (urlApi)
     }
 
     function lien() {
-// la balise a est un fils de items
+// la balise "a" est un fils de items
         const filSection = document.querySelectorAll("#items > a");
         filSection.forEach((a) =>  {
             const newArticle = document.createElement ("article");
@@ -68,54 +68,4 @@ fetch (urlApi)
         });
        
     }
-   
-  
-    
-
-    // function card() {
-
-
-    
-
-    // for (let product in products) {
-        
-    //     Object.assign (newA, {href:"./product.html?"+products[product]._id})
-    //     const newP = document.createElement("p");
-    //     const newTitle = document.createElement("h3");
-    //     const newImg = document.createElement ("img");
-        
-    //     var listArticle = document.getElementsByTagName("article");
-    //     listArticle[product].appendChild(newImg);
-    //     listArticle[product].appendChild(newTitle);
-    //     listArticle[product].appendChild(newP);
-        
-        
-
-    //     Object.assign(newImg, {
-    //         src:products[product].imageUrl,
-    //         alt:products[product].altTxt,
-    //     })
-
-    //     Object.assign(newP, {
-
-    //         class:"productDescription",
-    //         innerText:products[product].description,
-    //     })
-
-    //     Object.assign(newTitle, {
-
-    //         class:"productName",
-    //         innerText:products[product].name,
-    //     })
-        
-    //     // console.log(products[product].name);
-    //     // console.log(products[product]); 
-        
-    // //     if (products[product].price>4000) {
-    // //     console.log(products[product].description);
-            
-    //     // }
-    //     // console.log(products[product]);
-    // }
-    // }
 });

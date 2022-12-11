@@ -56,21 +56,6 @@ fetch (urlApi)
 
         const eleQuantity = document.getElementById("quantity");
         console.log(eleQuantity);
-
-
-        // for (let index = 0; index < eleQuantity.length; index++) {
-        //     const eleQuantity = eleQuantity[index];
-        
-            
-        // }
-
-
-        // var productQuantity = parseInt(document.getElementById("quantity").value) ;
-        //   console.log(productQuantity);
-
-        //   const productColor = document.querySelector("#colors").value;
-        //   console.log(productColor);
-
         
         const eleAdd = document.getElementById ("addToCart");
         console.log(eleAdd);

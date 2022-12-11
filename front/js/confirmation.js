@@ -4,8 +4,9 @@ const urlApi = "http://localhost:3000/api/products/order";
 const urlProduct = new URL (url); 
 console.log(urlProduct);
 const idProduct = urlProduct.searchParams.get("orderId"); 
-// on recupere l'order id
 console.log(idProduct);
+// on recupere l'order id
+
 
 let number = document.getElementById("orderId");
 number.innerText= idProduct;

@@ -18,8 +18,9 @@ fetch (urlApi)
 
         const newImg = document.createElement("img");
         Object.assign(newImg, {
-            src: infoProduct.imageUrl,
+            src: infoProduct.imageUrl, 
             alt: infoProduct.altTxt ,
+            // attribut de balise
         })
         console.log(newImg);
         eleImg[0].appendChild(newImg);

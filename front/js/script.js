@@ -65,7 +65,7 @@ fetch (urlApi)
             a.appendChild(newArticle);
          
         // pour associer chaque a a un article 
-        });
+        }); 
        
     }
 });
